@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 
 <%-- validation 실패시 --%>
-<c:if test="${not empty ERROR }">
+<c:if test="${not empty ERR }">
 	<script>
-		alert("등록 실패");
+		alert("등록 실패 " + "${ERR}");
 	</script>	
 </c:if>
 
@@ -22,15 +22,18 @@ function chkSubmit(){
 	var name = frm['name'].value.trim();
 	var subject = frm['subject'].value.trim();
 
+	/*
 	if(name == ""){
 		alert("작성자 란은 반드시 입력해야 합니다");
 		frm['name'].focus();
+		return false;
 	}
 	if(subject == ""){
 		alert("제목은 반드시 작성해야 합니다");
 		frm['subject'].focus();
 		return false;
 	}
+	*/
 	return true;
 } // end chkSubmit()
 </script>
@@ -38,9 +41,9 @@ function chkSubmit(){
 <h2>글작성</h2>
 <form name="frm" action="writeOk.do" method="post" onsubmit="return chkSubmit()">
 작성자:
-<input type="text" name="name" value="${w.name }"/><span style="color:red">${ERROR.NAME }</span><br>
+<input type="text" name="name" value="${w.name }"/><br>
 제목:
-<input type="text" name="subject" value="${w.subject }"/><span style="color:red">${ERROR.SUBJECT }</span><br>
+<input type="text" name="subject" value="${w.subject }"/><br>
 내용:<br>
 <textarea name="content">${w.content }</textarea>
 <br><br>

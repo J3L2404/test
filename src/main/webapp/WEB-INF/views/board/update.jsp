@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    
+
 <%-- validation 실패시 --%>
 <c:if test="${not empty ERROR }">
 	<script>
@@ -33,11 +33,13 @@ function chkSubmit(){
 	
 	var subject = frm["subject"].value.trim();
 
+	/*
     if (subject == "") {
         alert("제목은 반드시 작성해야 합니다");
         frm["subject"].focus();
         return false;
     }
+	*/
     return true;
 } // end chkSubmit()
 </script>
